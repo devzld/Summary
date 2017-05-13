@@ -1,0 +1,11 @@
+1. standard：标准模式，一调用startActivity()方法就会产生一个新的实例
+2. singleTop：栈顶的Activity恰巧就是该Activity的实例，不再创建新实例，否则，来了intent，每次都创建新的实例。
+3. singleTask：
++ 如果将要启动的Activity不存在，系统将会创建目标Activity的实例，并将它加入task栈顶。
++ 如果将要启动的Activity已经位于栈顶，此时与singleTop模式的行为相同。
++ 如果将要启动的Activity已经存在、但没有位于栈顶，系统会把位于该Activity上面的所有Activity移出task栈，从而使目标Activity转入栈顶。
++ 总的来说，目标Activity总要位于所在栈的栈顶。
+4. singleInstance：
++ 如果将要启动的目标Activity不存在，系统会先创建一个全新的task，再创建目标Activity的实例，并将它加入新的task的栈顶。
++ 如果将要启动的目标Activity已经存在，无论它位于哪个应用程序中，无论它位于哪个task中，系统会把该Activity所在的task转到前台，从而使用该Activity显示出来。
++ 目标Activity所在的task只包含该Activity。
