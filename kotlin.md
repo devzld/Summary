@@ -1,4 +1,4 @@
-+ ### by lazy 惰性加载
++ ### by lazy 惰性加载，线程安全
 
 class FragmentUtil private constructor() {
 
